@@ -6,6 +6,7 @@ export default function EventListing() {
     JSON.parse(localStorage.getItem("events")) || []
   );
   const [filter, setFilter] = useState("");
+  const [error, setError] = useState("");
 
   // Update state when a new event is added
   useEffect(() => {
@@ -15,11 +16,23 @@ export default function EventListing() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const title = form.title.value;
-    const location = form.location.value;
-    const category = form.category.value;
-    const date = form.date.value;
-    const description = form.description.value;
+    const title = form.title.value.trim();
+    const location = form.location.value.trim();
+    const category = form.category.value.trim();
+    const date = form.date.value.trim();
+    const description = form.description.value.trim();
+    setError("");
+
+    // Validation
+    if (title.length < 3) {
+      setError("Title must be at least 3 characters long.");
+      return;
+    }
+    if (description.length < 10) {
+      setError("Description must be at least 10 characters long.");
+      return;
+    }
+
     const newEvent = { title, location, category, date, description };
 
     // Get existing events from localStorage or initialize an empty array
@@ -146,6 +159,7 @@ export default function EventListing() {
                 <button className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white mt-4">
                   Add Event
                 </button>
+                <p className="text-red-500">{error && error}</p>
               </form>
             </div>
           </dialog>
