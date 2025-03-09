@@ -159,7 +159,7 @@ export default function EventListing() {
                 <button className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white mt-4">
                   Add Event
                 </button>
-                <p className="text-red-500">{error && error}</p>
+                <p className="text-red-500 text-center">{error && error}</p>
               </form>
             </div>
           </dialog>
