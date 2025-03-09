@@ -32,7 +32,7 @@ export default function Banner() {
   };
 
   return (
-    <div className="hero h-screen bg-blue-100 px-4 py-10">
+    <div className="hero min-h-screen mt-12 lg:mt-0 bg-blue-100 px-4 py-10">
       <div className="w-11/12 mx-auto flex flex-col-reverse gap-8 lg:flex-row-reverse items-center">
         {/* Images Section */}
         <div className="flex flex-col items-center gap-4 flex-1">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import EventCard from "../components/EventCard";
 
 export default function EventListing() {
   const [events, setEvents] = useState(
@@ -49,27 +50,27 @@ export default function EventListing() {
         <div className="hidden lg:flex"></div>
         <form className="filter">
           <input
-            className="btn btn-square"
+            className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white text-xl"
             onClick={() => setFilter("")}
             type="reset"
             value="×"
           />
           <input
-            className="btn"
+            className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white"
             type="radio"
             name="frameworks"
             onClick={() => setFilter("religious")}
             aria-label="Religious"
           />
           <input
-            className="btn"
+            className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white"
             type="radio"
             name="frameworks"
             onClick={() => setFilter("social")}
             aria-label="Social"
           />
           <input
-            className="btn"
+            className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white"
             type="radio"
             name="frameworks"
             onClick={() => setFilter("charity")}
@@ -79,10 +80,10 @@ export default function EventListing() {
         <div>
           {/* Open Modal */}
           <button
-            className="btn"
+            className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white"
             onClick={() => document.getElementById("my_modal_3").showModal()}
           >
-            Add Events
+            Add New Event Now
           </button>
           <dialog id="my_modal_3" className="modal">
             <div className="modal-box">
@@ -142,7 +143,9 @@ export default function EventListing() {
                     required
                   ></textarea>
                 </div>
-                <button className="btn btn-neutral mt-4">Add Event</button>
+                <button className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white mt-4">
+                  Add Event
+                </button>
               </form>
             </div>
           </dialog>
@@ -153,21 +156,7 @@ export default function EventListing() {
       <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
         {filteredEvents.length > 0 ? (
           filteredEvents.map((event, idx) => (
-            <div key={idx} className="card bg-base-100 border p-4 shadow-lg">
-              <div className="card-body">
-                <h2 className="card-title">{event.title}</h2>
-                <p className="text-sm text-gray-600">
-                  <strong>Category:</strong> {event.category}
-                </p>
-                <p>
-                  <strong>Date:</strong> {event.date}
-                </p>
-                <p>
-                  <strong>Location:</strong> {event.location}
-                </p>
-                <p className="text-gray-700">{event.description}</p>
-              </div>
-            </div>
+            <EventCard key={idx} event={event}></EventCard>
           ))
         ) : (
           <p className="text-center col-span-3">No events available</p>
