@@ -3,6 +3,7 @@ import celebrate1 from "../assets/celebrate-1.jpg";
 import celebrate2 from "../assets/celebrate-2.jpg";
 import { motion } from "framer-motion";
 import { easeInOut } from "framer-motion";
+import { Link } from "react-router";
 
 export default function Banner() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -31,8 +32,8 @@ export default function Banner() {
   };
 
   return (
-    <div className="hero bg-blue-100 px-4 py-10">
-      <div className="hero-content flex flex-col-reverse gap-8 lg:flex-row-reverse items-center">
+    <div className="hero h-screen bg-blue-100 px-4 py-10">
+      <div className="w-11/12 mx-auto flex flex-col-reverse gap-8 lg:flex-row-reverse items-center">
         {/* Images Section */}
         <div className="flex flex-col items-center gap-4 flex-1">
           <motion.img
@@ -62,9 +63,9 @@ export default function Banner() {
             effortlessly. Join us in fostering inclusivity, connection, and
             shared experiences.
           </p>
-          <button className="btn btn-primary w-full md:w-auto">
-            Get Started
-          </button>
+          <Link to={"/events"} className="btn btn-primary w-full md:w-auto">
+            Explore Events
+          </Link>
         </div>
       </div>
     </div>
