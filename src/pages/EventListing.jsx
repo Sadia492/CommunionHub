@@ -77,7 +77,7 @@ export default function EventListing() {
             aria-label="Charity"
           />
         </form>
-        <div>
+        <div className="mt-3 md:mt-0">
           {/* Open Modal */}
           <button
             className="btn bg-gradient-to-r from-blue-700 to-blue-400 text-white"
