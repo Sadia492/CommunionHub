@@ -6,8 +6,9 @@ export default function Navbar() {
   return (
     <div className="fixed top-0 w-full bg-[#DBEBFF]">
       <div className="navbar  w-11/12 mx-auto ">
-        <div className="flex-1">
-          <img src={logo} className="w-40" alt="" />
+        <div className="flex-1 flex items-center gap-1">
+          <img src={logo} className="w-8" alt="" />
+          <h2 className="text-2xl font-bold text-blue-700">CommunionHub</h2>
         </div>
         <div className="flex-none">
           <ul className="flex gap-6 px-1">
